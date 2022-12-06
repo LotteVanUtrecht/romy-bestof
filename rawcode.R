@@ -1,3 +1,15 @@
+
+# ----Definieer functies------------------------------------------------
+
+#Hai lotte, ik probeer iets te pushen 
+factoriseer_eencijferdata <- function(path_data,
+                                     path_domeinwaarden="Data/P_DOMEINWAARDEN.csv",
+                                     cols_of_interest="ALL"){
+
+
+
+  
+
 data_prep <- function(refresh=TRUE){
   # doel:   preparatie van data in een dataframe, dit df wordt gesynthetiseerd 
   # input:  refresh=FALSE haalt een eerder opgeslagen .RDS op. 
@@ -279,11 +291,14 @@ syn_data_opslaan(sds)
    
 <h2>Instroom definities</h2>
 
-Het aantal instromers is afhankelijk van de definitie die voor een instromer is gekozen. Afhankelijk van de gekozen filters verandert de door DUO aanbevolen definitie. Die aanbeveling is gebaseerd op veelvoorkomende vragen, maar alle filters zijn ‘correct’ afhankelijk van de behoefte van de gebruiker. Filters zijn niet beschikbaar wanneer dit niet relevant is voor het thema. 
+Het aantal instromers is afhankelijk van de definitie die voor een instromer is gekozen. Afhankelijk van de gekozen filters verandert de door DUO aanbevolen
+  definitie. Die aanbeveling is gebaseerd op veelvoorkomende vragen, maar alle filters zijn ‘correct’ afhankelijk van de behoefte van de gebruiker. Filters zijn
+  niet beschikbaar wanneer dit niet relevant is voor het thema. 
 
 #### Instroom in domein hoger onderwijs
 
-Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in het bekostigd hoger onderwijs op 1 oktober. Dat betekent dat studenten niet meer als instromers worden meegeteld voor nieuwe opleidingen na een eerdere HO inschrijving, ongeacht soort HO (hbo, wo) of type HO (ad, ba, ma).
+Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in het bekostigd hoger onderwijs op 1 oktober. Dat betekent
+  dat studenten niet meer als instromers worden meegeteld voor nieuwe opleidingen na een eerdere HO inschrijving, ongeacht soort HO (hbo, wo) of type HO (ad, ba, ma).
 * Bijvoorbeeld: een student die een wo-bachelor heeft afgerond en in het huidige studiejaar  
 een wo-master begint wordt **niet** meegeteld als instromer. 
 * Bijvoorbeeld: een student die eerder een hbo-bachelor volgde en in het huidige studiejaar  
@@ -292,7 +307,8 @@ een wo-bachelor begint wordt **niet** meegeteld als instromer.
 
 #### Instroom in soort HO
 
-Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een specifieke soort HO (hbo of wo) op 1 oktober, onafhankelijk van type HO (ad, ba, ma). 
+Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een specifieke soort HO (hbo of wo) op 1 oktober, 
+  onafhankelijk van type HO (ad, ba, ma). 
 * Bijvoorbeeld: een student die een wo-bachelor heeft afgerond en in het huidige studiejaar een wo-master begint wordt **niet** meegeteld als instromer. 
 * Bijvoorbeeld: een student die eerder een hbo-bachelor volgde en na de propedeuse een wo-bachelor begint wordt **wel** meegeteld als instromer.
 
@@ -306,7 +322,8 @@ een wo-bachelor begint wordt **niet** meegeteld als instromer.
 
 #### Instroom in combinatie type en soort HO
 
-Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een vaste combinatie van een soort HO en een type HO op 1 oktober.
+Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een vaste combinatie
+  van een soort HO en een type HO op 1 oktober.
 * Bijvoorbeeld: een student die een wo-bachelor heeft afgerond en in het huidige studiejaar  
 een wo-master begint wordt **wel** meegeteld als instromer. 
 * Bijvoorbeeld: een student die eerder een hbo-bachelor volgde en in het huidige studiejaar  
@@ -315,14 +332,16 @@ een wo-bachelor begint wordt **wel** meegeteld als instromer.
 Deze definitie wijkt af van de Monitor Beleidsmaatregelen, waar instromers die na oktober beginnen helemaal niet geteld worden.
 #### _Instroom in combinatie opleiding en instelling_
 
-Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een opleiding in een specifieke opleiding, op een specifieke instelling, op 1 oktober.
+Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een opleiding in een specifieke opleiding, 
+  op een specifieke instelling, op 1 oktober.
 
 * Bijvoorbeeld: een student die de hbo-bachelor leraar wiskunde heeft gevolgd aan de Hogeschool van Amsterdam,  
 en in het huidige studiejaar deze bachelor voortzet aan de Hogeschool Utrecht wordt **wel** meegeteld als instromer.   
 
 #### _Instroom in opleiding, ongeacht instelling_
 
-Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een specifieke opleiding, ongeacht de instelling, op 1 oktober.
+Het aantal personen met een hoofdinschrijving in het HO domein dat voor het eerst ingeschreven staat in een specifieke opleiding, 
+  ongeacht de instelling, op 1 oktober.
 
 * Bijvoorbeeld: een student die de hbo-bachelor leraar wiskunde heeft gevolgd aan de Hogeschool van Amsterdam,  
 en in het huidige studiejaar deze bachelor voortzet aan de Hogeschool Utrecht wordt **niet** meegeteld als instromer.   
@@ -356,7 +375,8 @@ bekostigingsdata <- function(path_data,
   setwd(path_data) #("I:/Team VO/Projecten/Geisoleerde Scholen/Data")
   
   data_bekostiging <- read.csv(data_bekostiging, sep = ';') #read.csv("data_input/Geisoleerde vestigingen 19-04-22 13.36.59.csv", sep = ';') 
-  data_orgd <- read.spss(data_orgd, to.data.frame = TRUE, use.value.labels = FALSE)  #read.spss("data_input/org_D_20220214.sav", to.data.frame = TRUE, use.value.labels = FALSE) 
+  data_orgd <- read.spss(data_orgd, to.data.frame = TRUE, use.value.labels = FALSE) 
+  #read.spss("data_input/org_D_20220214.sav", to.data.frame = TRUE, use.value.labels = FALSE) 
   
   
   # Definieer variabelen ---------------------------------------------------------------
@@ -471,17 +491,30 @@ bekostigingsdata <- function(path_data,
       x = paste0(x, "is tijdelijk")
     }
     if(data$VESTIGING_TE_KLEIN[i] == "J" | data$VESTIGINGSOORT[i] == "TVST"){
-      data$waarschuwing_niet_in_aanmerking[i] = paste0("LET OP: Deze vestiging ", x, " en komt daardoor niet in aanmerking voor de toeslag. Het aantal leerlingen wordt wel gebruikt voor het vaststellen van het aantal leerlingen die op een scholengemeenschap zijn ingeschreven (artikel 5 en 6).") 
+      data$waarschuwing_niet_in_aanmerking[i] = paste0("LET OP: Deze vestiging ", x, " en komt daardoor niet in aanmerking voor de toeslag. Het aanta
+l leerlingen wordt wel gebruikt voor het vaststellen van het aantal leerlingen die op een scholengemeenschap zijn ingeschreven (artikel 5 en 6).") 
     }
-    #de speciale vestigingen krijgen een apart bericht omdat ze uitgesloten zijn van de hele regeling (of ze daarbij tijdelijk of te klein zijn maakt dus niet uit en hoeft er niet bij in de zin)
+    #de speciale vestigingen krijgen een apart bericht omdat ze uitgesloten zijn van de hele regeling 
+    #(of ze daarbij tijdelijk of te klein zijn maakt dus niet uit en hoeft er niet bij in de zin)
     if(data$INDICATIE_SPECIALE_VESTIGING[i] == "J"){
-      data$waarschuwing_niet_in_aanmerking[i] = "LET OP: Deze vestiging krijgt aanvullende bekostiging op grond van artikel 2 van de regeling aanvullende bekostiging vo-scholen in uitzonderlijke omstandigheden en komt daardoor niet in aanmerking voor deze regeling"
+      data$waarschuwing_niet_in_aanmerking[i] = "LET OP: Deze vestiging krijgt aanvullende bekostiging op grond van artikel 2 van de regeling aanvullende
+bekostiging vo-scholen in uitzonderlijke omstandigheden en komt daardoor niet in aanmerking voor deze regeling"
     }
   }
   
   # longitude en lattitude coordinaten toe aan de data
-  data$lng <- 5.387206 + (((5260.52916 * ((data$RD_x-155000)/10^5)) + (105.94684 * ((data$RD_x-155000)/10^5) * ((data$RD_y-463000)/10^5)) + (2.45656 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.81885 * (((data$RD_x-155000)/10^5)) ^ 3) + (0.05594 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 3) + (-0.05607 * (((data$RD_x-155000)/10^5)) ^ 3 * ((data$RD_y-463000)/10^5)) + (0.01199 * ((data$RD_y-463000)/10^5)) + (-0.00256 * (((data$RD_x-155000)/10^5)) ^ 3 * (((data$RD_y-463000)/10^5)) ^ 2) + (0.00128 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 4) + (0.00022 * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.00022 * (((data$RD_x-155000)/10^5)) ^ 2) + (0.00026 * (((data$RD_x-155000)/10^5)) ^ 5)) / 3600)
-  data$lat <- 52.15517 + (((3235.65389 * ((data$RD_y-463000)/10^5)) + (-32.58297 * (((data$RD_x-155000)/10^5)) ^ 2) + (-0.2475 * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.84978 * (((data$RD_x-155000)/10^5)) ^ 2 * ((data$RD_y-463000)/10^5)) + (-0.0655 * (((data$RD_y-463000)/10^5)) ^ 3) + (-0.01709 * (((data$RD_x-155000)/10^5)) ^ 2 * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.00738 * ((data$RD_x-155000)/10^5)) + (0.0053 * (((data$RD_x-155000)/10^5)) ^ 4) + (-0.00039 * (((data$RD_x-155000)/10^5)) ^ 2 * (((data$RD_y-463000)/10^5)) ^ 3) + (0.00033 * (((data$RD_x-155000)/10^5)) ^ 4 * ((data$RD_y-463000)/10^5)) + (-0.00012 * ((data$RD_x-155000)/10^5) * ((data$RD_y-463000)/10^5))) / 3600)
+  data$lng <- 5.387206 + (((5260.52916 * ((data$RD_x-155000)/10^5)) + (105.94684 * ((data$RD_x-155000)/10^5) * ((data$RD_y-463000)/10^5)) + 
+                           (2.45656 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.81885 * (((data$RD_x-155000)/10^5)) ^ 3) + 
+                           (0.05594 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 3) + (-0.05607 * (((data$RD_x-155000)/10^5)) ^ 3 * ((data$RD_y-463000)/10^5)) + 
+                           (0.01199 * ((data$RD_y-463000)/10^5)) + (-0.00256 * (((data$RD_x-155000)/10^5)) ^ 3 * (((data$RD_y-463000)/10^5)) ^ 2) + 
+                           (0.00128 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 4) + (0.00022 * (((data$RD_y-463000)/10^5)) ^ 2) + 
+                           (-0.00022 * (((data$RD_x-155000)/10^5)) ^ 2) + (0.00026 * (((data$RD_x-155000)/10^5)) ^ 5)) / 3600)
+  data$lat <- 52.15517 + (((3235.65389 * ((data$RD_y-463000)/10^5)) + (-32.58297 * (((data$RD_x-155000)/10^5)) ^ 2) + (-0.2475 * (((data$RD_y-463000)/10^5)) ^ 2) + 
+                           (-0.84978 * (((data$RD_x-155000)/10^5)) ^ 2 * ((data$RD_y-463000)/10^5)) + (-0.0655 * (((data$RD_y-463000)/10^5)) ^ 3) + 
+                           (-0.01709 * (((data$RD_x-155000)/10^5)) ^ 2 * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.00738 * ((data$RD_x-155000)/10^5)) + 
+                           (0.0053 * (((data$RD_x-155000)/10^5)) ^ 4) + (-0.00039 * (((data$RD_x-155000)/10^5)) ^ 2 * (((data$RD_y-463000)/10^5)) ^ 3) +
+                           (0.00033 * (((data$RD_x-155000)/10^5)) ^ 4 * ((data$RD_y-463000)/10^5)) + 
+                           (-0.00012 * ((data$RD_x-155000)/10^5) * ((data$RD_y-463000)/10^5))) / 3600)
   
   
   # Afstanden berekenen --------------------------------------------
@@ -587,7 +620,8 @@ bekostigingsdata <- function(path_data,
   setwd(path_data) #("I:/Team VO/Projecten/Geisoleerde Scholen/Data")
   
   data_bekostiging <- read.csv(data_bekostiging, sep = ';') #read.csv("data_input/Geisoleerde vestigingen 19-04-22 13.36.59.csv", sep = ';') 
-  data_orgd <- read.spss(data_orgd, to.data.frame = TRUE, use.value.labels = FALSE)  #read.spss("data_input/org_D_20220214.sav", to.data.frame = TRUE, use.value.labels = FALSE) 
+  data_orgd <- read.spss(data_orgd, to.data.frame = TRUE, use.value.labels = FALSE)  
+  #read.spss("data_input/org_D_20220214.sav", to.data.frame = TRUE, use.value.labels = FALSE) 
   
   
   # Definieer variabelen ---------------------------------------------------------------
@@ -702,18 +736,21 @@ bekostigingsdata <- function(path_data,
       x = paste0(x, "is tijdelijk")
     }
     if(data$VESTIGING_TE_KLEIN[i] == "J" | data$VESTIGINGSOORT[i] == "TVST"){
-      data$waarschuwing_niet_in_aanmerking[i] = paste0("LET OP: Deze vestiging ", x, " en komt daardoor niet in aanmerking voor de toeslag. Het aantal leerlingen wordt wel gebruikt voor het vaststellen van het aantal leerlingen die op een scholengemeenschap zijn ingeschreven (artikel 5 en 6).") 
+      data$waarschuwing_niet_in_aanmerking[i] = paste0("LET OP: Deze vestiging ", x, " en komt daardoor niet in aanmerking voor de toeslag. Het aantal
+leerlingen wordt wel gebruikt voor het vaststellen van het aantal leerlingen die op een scholengemeenschap zijn ingeschreven (artikel 5 en 6).") 
     }
-    #de speciale vestigingen krijgen een apart bericht omdat ze uitgesloten zijn van de hele regeling (of ze daarbij tijdelijk of te klein zijn maakt dus niet uit en hoeft er niet bij in de zin)
+    #de speciale vestigingen krijgen een apart bericht omdat ze uitgesloten zijn van de hele regeling (of ze daarbij tijdelijk of te klein zijn maakt dus nie
+    t uit en hoeft er niet bij in de zin)
     if(data$INDICATIE_SPECIALE_VESTIGING[i] == "J"){
-      data$waarschuwing_niet_in_aanmerking[i] = "LET OP: Deze vestiging krijgt aanvullende bekostiging op grond van artikel 2 van de regeling aanvullende bekostiging vo-scholen in uitzonderlijke omstandigheden en komt daardoor niet in aanmerking voor deze regeling"
+      data$waarschuwing_niet_in_aanmerking[i] = "LET OP: Deze vestiging krijgt aanvullende bekostiging op grond van artikel 2 van de regeling aanvullende 
+bekostiging vo-scholen in uitzonderlijke omstandigheden en komt daardoor niet in aanmerking voor deze regeling"
     }
   }
   
   # longitude en lattitude coordinaten toe aan de data
-  data$lng <- 5.387206 + (((5260.52916 * ((data$RD_x-155000)/10^5)) + (105.94684 * ((data$RD_x-155000)/10^5) * ((data$RD_y-463000)/10^5)) + (2.45656 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.81885 * (((data$RD_x-155000)/10^5)) ^ 3) + (0.05594 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 3) + (-0.05607 * (((data$RD_x-155000)/10^5)) ^ 3 * ((data$RD_y-463000)/10^5)) + (0.01199 * ((data$RD_y-463000)/10^5)) + (-0.00256 * (((data$RD_x-155000)/10^5)) ^ 3 * (((data$RD_y-463000)/10^5)) ^ 2) + (0.00128 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 4) + (0.00022 * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.00022 * (((data$RD_x-155000)/10^5)) ^ 2) + (0.00026 * (((data$RD_x-155000)/10^5)) ^ 5)) / 3600)
-  data$lat <- 52.15517 + (((3235.65389 * ((data$RD_y-463000)/10^5)) + (-32.58297 * (((data$RD_x-155000)/10^5)) ^ 2) + (-0.2475 * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.84978 * (((data$RD_x-155000)/10^5)) ^ 2 * ((data$RD_y-463000)/10^5)) + (-0.0655 * (((data$RD_y-463000)/10^5)) ^ 3) + (-0.01709 * (((data$RD_x-155000)/10^5)) ^ 2 * (((data$RD_y-463000)/10^5)) ^ 2) + (-0.00738 * ((data$RD_x-155000)/10^5)) + (0.0053 * (((data$RD_x-155000)/10^5)) ^ 4) + (-0.00039 * (((data$RD_x-155000)/10^5)) ^ 2 * (((data$RD_y-463000)/10^5)) ^ 3) + (0.00033 * (((data$RD_x-155000)/10^5)) ^ 4 * ((data$RD_y-463000)/10^5)) + (-0.00012 * ((data$RD_x-155000)/10^5) * ((data$RD_y-463000)/10^5))) / 3600)
-  
+  data$lng <- 5.387206 + (((5260.52916 * ((data$RD_x-155000)/10^5)) + (105.94684 * ((data$RD_x-155000)/10^5) * ((data$RD_y-463000)/10^5)) + 
+                           (2.45656 * ((data$RD_x-155000)/10^5) * (((data$RD_y-463000)/10^5)) ^ 2) 
+  data$lat <- 52.15517 + (((3235.65389 * ((data$RD_y-463000)/10^5)) + (-32.58297 * (((data$RD_x-155000)/10^5)) ^ 2) + (-0.2475 * (((data$RD_y-463000)/10^5)) ^ 2) + (
   
   # Afstanden berekenen --------------------------------------------
   
@@ -789,12 +826,3 @@ bekostigingsdata <- function(path_data,
        file = paste0(output_path,"bekostigings_data_",bekostigingsjaar,"_",status,".RData"))
   
 }
-
-# ----Definieer functies------------------------------------------------
-
-#Hai lotte, ik probeer iets te pushen 
-factoriseer_eencijferdata <- function(path_data,
-                                     path_domeinwaarden="Data/P_DOMEINWAARDEN.csv",
-                                     cols_of_interest="ALL"){
-
-
